@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const GoogleFontsPlugin = require('google-fonts-plugin')
 
 module.exports = (env, options) => {
    // Check is production
@@ -16,15 +17,15 @@ module.exports = (env, options) => {
       devtool: isProd ? false : 'source-map',
 
       module: {
-         rules: [
-            {
+         rules: [{
                test: /\.(scss|sass|css)$/,
                exclude: /node_modules/,
                use: ExtractTextPlugin.extract({
-                  use: [
-                     {
+                  use: [{
                         loader: 'css-loader',
-                        options: { sourceMap: isProd ? false : true }
+                        options: {
+                           sourceMap: isProd ? false : true
+                        }
                      },
                      {
                         loader: 'postcss-loader',
@@ -36,12 +37,16 @@ module.exports = (env, options) => {
                      },
                      {
                         loader: 'sass-loader',
-                        options: { sourceMap: isProd ? false : true }
+                        options: {
+                           sourceMap: isProd ? false : true
+                        }
                      }
                   ],
                   fallback: {
                      loader: 'style-loader',
-                     options: { sourceMap: isProd ? false : true }
+                     options: {
+                        sourceMap: isProd ? false : true
+                     }
                   },
                   publicPath: '../'
                })
@@ -56,8 +61,7 @@ module.exports = (env, options) => {
             {
                test: /\.(gif|png|jpe?g|svg)$/,
                exclude: /fonts?/,
-               use: [
-                  {
+               use: [{
                      loader: 'file-loader',
                      options: {
                         name: '[name].[ext]',
@@ -103,6 +107,12 @@ module.exports = (env, options) => {
          new ExtractTextPlugin('css/style.css'),
          new HtmlWebpackPlugin({
             template: './src/index.html'
+         }),
+         new GoogleFontsPlugin({
+            fonts: [{
+               family: "Open Sans",
+               variants: ["400", "600", "700"]
+            }]
          })
       ]
    };

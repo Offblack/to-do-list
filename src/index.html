@@ -5,12 +5,47 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
    <meta name="description" content="To aplikacja służąca tworzeniu i przechowywaniu własnych zadań." />
-
    <title>ToDoList</title>
 </head>
 
 <body>
-   <section class="container" id="view-container"></section>
+   <section class="container" id="view-container">
+      <header>
+         <div id="searcher">
+            <input id="search-task" type="text" placeholder="Search...">
+            <div class="fas fa-search search-icon"></div>
+         </div>
+         <p>Monday, 3 Dec</p>
+      </header>
+      <section>
+         <div id="list-to-do">
+            <h2>Today</h2>
+            <div class="one-task">
+               <i class="fas fa-check task-check-icon"></i>
+               <p class="task-title">Make something awesome</p>
+               <i class="far fa-clock timer-icon"></i>
+               <i class="fas fa-times task-delete-icon"></i>
+            </div>
+            <div class="one-task">
+               <i class="fas fa-check task-check-icon"></i>
+               <p class="task-title">Make something awesome</p>
+               <i class="far fa-clock timer-icon"></i>
+               <i class="fas fa-times task-delete-icon"></i>
+            </div>
+            <div class="one-task finished-task">
+               <i class="fas fa-check task-check-icon"></i>
+               <p class="task-title">Make something awesome</p>
+               <i class="far fa-clock timer-icon"></i>
+               <i class="fas fa-times task-delete-icon"></i>
+            </div>
+            <div class="motivational-quotes">What have for today?
+               <div class="arrow-icons">
+                  <i class="fas fa-chevron-right"></i>
+                  <i class="fas fa-chevron-right"></i></div>
+            </div>
+         </div>
+      </section>
+   </section>
 </body>
 
 </html>
