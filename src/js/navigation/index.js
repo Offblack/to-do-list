@@ -1,4 +1,19 @@
-import DOM from './../dom.js';
+import {
+   get,
+   DOMInit
+} from './../dom.js';
 import * as EventActions from './../event-actions.js';
 
-const searchForNote = DOM.searchTask.addEventListener('input', EventActions.searchSpecifyNote);
+DOMInit();
+
+const searchForNote = get().searchTask.addEventListener('input', EventActions.searchSpecifyNote);
+
+
+const setActualDate = () => get().pageDate.textContent = EventActions.actualTime();
+
+
+const init = () => {
+   setActualDate();
+}
+
+init();

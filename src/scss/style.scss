@@ -176,5 +176,65 @@ header {
    .arrow-icons {
       opacity: 0.7;
       font-size: 14px;
+
+      &:hover {
+         transition: 0.3s ease-in-out;
+         cursor: pointer;
+         opacity: 1;
+      }
+   }
+}
+
+#adder {
+   display: flex;
+   align-content: center;
+   align-items: center;
+   margin: auto 0;
+   position: relative;
+   width: 230px;
+   height: 20px;
+
+   #add-task {
+      margin: 0;
+      font-size: 14px;
+      width: 230px;
+      height: 20px;
+      border-radius: 10px;
+      border: 1px #efefef solid;
+      padding: 10px 15px;
+
+      &::placeholder {
+         color: #d0d0d0;
+      }
+
+      &:focus {
+         outline: none;
+         border: 1px #51bf95 solid;
+      }
+   }
+
+   .add-icon {
+      position: absolute;
+      top: 0;
+      left: 85%;
+      font-size: 21px;
+      color: #a4e7ce;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+         color: #51bf95;
+         cursor: pointer;
+      }
+   }
+}
+
+.back-icon {
+   opacity: 0.7;
+   font-size: 14px;
+
+   &:hover {
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+      opacity: 1;
    }
 }
