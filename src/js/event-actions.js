@@ -4,6 +4,13 @@ import {
    taskFullList
 } from './dom.js'
 
+import axios from './axios';
+
+axios.get('/tasks')
+   .then(function (response) {
+      // handle success
+      console.log(response);
+   })
 
 export const listInit = () => {
    taskFullList.forEach(oneTask => {

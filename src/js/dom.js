@@ -22,21 +22,6 @@ export const get = () => {
 }
 
 
-export const taskFullList = [{
-      id: 0,
-      title: 'Make something awesome',
-      status: 'active'
-   },
-   {
-      id: 1,
-      title: 'Do it, plan your own',
-      status: 'active'
-   },
-   {
-      id: 2,
-      title: 'Do it right now',
-      status: 'finished'
-   }
-];
+export const taskFullList = [];
 
 export default get;
