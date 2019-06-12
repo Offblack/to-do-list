@@ -185,7 +185,7 @@ header {
    }
 }
 
-#adder {
+#adder>form {
    display: flex;
    align-content: center;
    align-items: center;
@@ -194,7 +194,7 @@ header {
    width: 230px;
    height: 20px;
 
-   #add-task {
+   #add-input {
       margin: 0;
       font-size: 14px;
       width: 230px;
@@ -213,18 +213,24 @@ header {
       }
    }
 
-   .add-icon {
-      position: absolute;
-      top: 0;
-      left: 85%;
-      font-size: 21px;
-      color: #a4e7ce;
-      transition: 0.3s ease-in-out;
+   button {
+      background: transparent;
+      border: none;
+      outline: none;
+   }
+}
 
-      &:hover {
-         color: #51bf95;
-         cursor: pointer;
-      }
+.add-icon {
+   position: absolute;
+   top: 0;
+   left: 80%;
+   font-size: 21px;
+   color: #a4e7ce;
+   transition: 0.3s ease-in-out;
+
+   &:hover {
+      color: #51bf95;
+      cursor: pointer;
    }
 }
 
