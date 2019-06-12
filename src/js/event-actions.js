@@ -1,29 +1,35 @@
 import {
    get,
    DOMInit,
-   taskFullList
 } from './dom.js'
 
 import axios from './axios';
 
-axios.get('/tasks')
-   .then(function (response) {
-      // handle success
-      console.log(response);
-   })
+const getAll = () => {
+   return new Promise((resolve, reject) => {
+      axios
+         .get('/tasks')
+         .then(base => base.data)
+         .then(tasks => resolve(tasks))
+         .catch(err => console.log(err));
+   });
+}
 
 export const listInit = () => {
-   taskFullList.forEach(oneTask => {
-      get().tasksList.innerHTML += `<ul class="one-task ${oneTask.status === 'finished' ? 'finished-task' : ''}">
-         <span class="task-check-icon"><i class="fas fa-check"></i></span>
-         <p class="task-title">${oneTask.title}</p>
-         <i class="far fa-clock timer-icon"></i>
-         <span class="task-delete-icon" data-key="${oneTask.id}"><i class="fas fa-times"></i></span>
-      </ul>`;
-   });
-   DOMInit();
-   [...get().taskDeleteIcons].forEach(oneDelete => oneDelete.addEventListener('click', deleteOneTask));
-   [...get().taskCheckIcons].forEach(oneDelete => oneDelete.addEventListener('click', finishOneTask));
+   getAll()
+      .then(tasks => {
+         tasks.forEach((oneTask) => {
+            get().tasksList.innerHTML += `<ul class="one-task" id="${oneTask.id}">
+            <span class="task-check-icon"><i class="fas fa-check"></i></span>
+            <p class="task-title">${oneTask.title}</p>
+            <i class="far fa-clock timer-icon"></i>
+            <span class="task-delete-icon" data-key="${oneTask.id}"><i class="fas fa-times"></i></span>
+         </ul>`;
+         });
+         DOMInit();
+         [...get().taskDeleteIcons].forEach(oneDelete => oneDelete.addEventListener('click', deleteOneTask));
+         [...get().taskCheckIcons].forEach(oneDelete => oneDelete.addEventListener('click', finishOneTask));
+      });
 }
 
 export const searchSpecifyNote = element => {
@@ -40,6 +46,7 @@ export const searchSpecifyNote = element => {
       get().tasksList.appendChild(title.parentNode);
    });
 }
+
 
 export const actualTime = () => {
    const actualDate = new Date();
@@ -60,40 +67,41 @@ export const actualTime = () => {
    return oneDate;
 }
 
+
 const finishOneTask = function () {
-   this.parentNode.classList.toggle('finished-task');
+   this.parentNode.classList.toggle('finished-task')
 }
+
 
 const deleteOneTask = function () {
-
-   const index = this.dataset.key;
-
-   if (taskFullList.length === 1) taskFullList.length = 0;
-
-   taskFullList.splice(index, 1);
-   get().tasksList.innerHTML = '';
-   listInit();
-
+   return new Promise(() => {
+      axios
+         .delete(`/tasks/${this.dataset.key}`)
+         .then(() => {
+            get().tasksList.innerHTML = '';
+            listInit();
+         })
+         .catch(err => console.log(err));
+   });
 }
 
-const addNewTask = e => {
-
-   e.preventDefault();
-
-   const newIndex = taskFullList.length;
-   const newTitle = get().addInput.value.trim();
-
-   const newOneTask = {
-      id: newIndex,
-      title: newTitle,
-      status: 'active'
+const addNewTask = () => {
+   if (get().addInput.value != '') {
+      return new Promise((resolve, reject) => {
+         axios
+            .post(`/tasks`, {
+               id: document.querySelectorAll('.one-task').id + 1,
+               title: get().addInput.value.trim()
+            })
+            .then(() => {
+               console.log(document.querySelectorAll('.one-task'));
+               get().tasksList.innerHTML = '';
+               listInit();
+               get().addInput.value = '';
+            })
+            .catch(err => console.log(err));
+      });
    }
-
-   if (newTitle) taskFullList.push(newOneTask);
-
-   get().tasksList.innerHTML = '';
-   listInit();
-   get().addInput.value = '';
 }
 
 export const showTasksInput = () => {

@@ -1,7 +1,6 @@
 import {
    DOMInit,
-   get,
-   taskFullList
+   get
 } from './../dom.js';
 import * as EventActions from './../event-actions.js';
 

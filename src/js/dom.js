@@ -21,7 +21,4 @@ export const get = () => {
    return DOM;
 }
 
-
-export const taskFullList = [];
-
 export default get;
