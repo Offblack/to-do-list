@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-   baseURL: 'https://http://localhost:7001'
+   baseURL: 'https://my-json-server.typicode.com/Offblack/to-do-list'
 });
 
 export default instance;

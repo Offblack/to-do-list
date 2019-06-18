@@ -40,6 +40,9 @@ body {
       height: 30px;
 
 
+      @media (max-width:440px) {
+         width: auto;
+      }
 
       #search-task {
          margin: 0;
@@ -72,6 +75,11 @@ body {
             color: #51bf95;
             cursor: pointer;
          }
+
+         @media (max-width:440px) {
+            left: 80%;
+            ;
+         }
       }
    }
 
@@ -80,7 +88,7 @@ body {
 
       @media (max-width:440px) {
          padding-top: 25px;
-         padding-top: 15px;
+         padding-bottom: 15px;
       }
    }
 }
