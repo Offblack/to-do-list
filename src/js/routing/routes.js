@@ -1,8 +1,8 @@
 import * as view from './view.js';
 import appInit from './../tasks/index.js';
 
-import introView from './../views/intro.html';
-import tasksView from './../views/tasks.html';
+import introView from './../../views/intro.html';
+import tasksView from './../../views/tasks.html';
 
 export const index = () => {
    view.load(introView).then(() => {
