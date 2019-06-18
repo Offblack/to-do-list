@@ -1,6 +1,6 @@
 # To-do-app
 
-It's an to-do-list app. You can add, delete and finish your tasks.
+It's a to-do-list app. You can add, delete and finish your tasks.
 
 ![alt text](https://raw.githubusercontent.com/Offblack/to-do-list/master/screenshot.png)
 
