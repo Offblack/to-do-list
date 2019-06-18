@@ -2,6 +2,7 @@ let DOM = {};
 
 export const DOMInit = () => {
    DOM = {
+      viewContainer: document.querySelector('#view-container'),
       searchTask: document.querySelector('#search-task'),
       tasksList: document.querySelector('.tasks-list'),
       allTask: document.querySelectorAll('.one-task'),

@@ -4,16 +4,23 @@ import {
 } from './../dom.js';
 import * as EventActions from './../event-actions.js';
 
-DOMInit();
-
-const searchForNote = get().searchTask.addEventListener('input', EventActions.searchSpecifyNote);
 
 
-const setActualDate = () => get().pageDate.textContent = EventActions.actualTime();
+const NavigationInit = () => {
+
+   DOMInit();
+
+   const searchForNote = get().searchTask.addEventListener('input', EventActions.searchSpecifyNote);
 
 
-const init = () => {
-   setActualDate();
+   const setActualDate = () => get().pageDate.textContent = EventActions.actualTime();
+
+
+   const init = () => {
+      setActualDate();
+   }
+
+   init();
 }
 
-init();
+export default NavigationInit;

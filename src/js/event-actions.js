@@ -85,22 +85,24 @@ const deleteOneTask = function () {
    });
 }
 
-const addNewTask = () => {
+const addNewTask = (e) => {
    if (get().addInput.value != '') {
       return new Promise((resolve, reject) => {
+         e.preventDefault();
          axios
-            .post(`/tasks`, {
+            .post('/tasks', {
                id: document.querySelectorAll('.one-task').id + 1,
                title: get().addInput.value.trim()
             })
             .then(() => {
-               console.log(document.querySelectorAll('.one-task'));
                get().tasksList.innerHTML = '';
                listInit();
                get().addInput.value = '';
             })
             .catch(err => console.log(err));
       });
+   } else {
+      e.preventDefault();
    }
 }
 

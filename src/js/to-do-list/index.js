@@ -4,8 +4,12 @@ import {
 } from './../dom.js';
 import * as EventActions from './../event-actions.js';
 
-EventActions.listInit();
-DOMInit();
+const ListToDoInit = () => {
+   EventActions.listInit();
+   DOMInit();
 
 
-get().arrowIcons.addEventListener('click', EventActions.showTasksInput);
+   get().arrowIcons.addEventListener('click', EventActions.showTasksInput);
+}
+
+export default ListToDoInit;
