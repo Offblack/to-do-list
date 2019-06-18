@@ -16,4 +16,6 @@ export const tasks = () => {
    })
 }
 
-export const notFound = () => {}
+export const notFound = () => {
+   document.body.innerHTML = "Ops... Something went wrong! :("
+}
