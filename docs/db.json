@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Make something awesome"
+    },
+    {
+      "id": 2,
+      "title": "Draw something beautiful"
+    },
+    {
+      "id": 3,
+      "title": "Create something new"
+    }
+  ]
+}
