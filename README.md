@@ -3,6 +3,8 @@
 It's a to-do-list app. You can add, delete and finish your tasks.
 
 LIVE: https://offblack.github.io/to-do-list/
+- It's working with a fake JSON data-base.
+(To check real version download or clone repository.)
 
 ![alt text](https://raw.githubusercontent.com/Offblack/to-do-list/master/screenshot.png)
 
@@ -20,11 +22,6 @@ Technologies:
 -  Webpack
 -  Sass
 -  API
-
-## Deployment
-
-It's working with a fake JSON data-base.
-(To check real version download or clone repository.)
 
 ## How to use it?
 
